@@ -4,13 +4,13 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <a ui-sref="opportunityIndex()" class="btn btn-success">
-            <i class="fa fa-building"></i> Opportunities
+            <i class="fa fa-building"></i> Inspections
           </a>
         </h3>
       </div>
       <div class="panel-body">
         <div ng-if="opportunities.length == 0" class="alert alert-info" role="alert">
-          You currently do not have any opportunties associated with your account. Click <strong>New Opportunity</strong> to add one.
+          You currently do not have any inspections associated with your account. Click <strong>New Inspection</strong> to add one.
         </div>
         <table ng-if="opportunities.length > 0" class="table table-striped">
           <thead>
@@ -32,7 +32,7 @@
       </div>
       <div class="panel-footer">
         <a ui-sref="opportunityCreate()" class="btn btn-primary">
-          <i class="glyphicon glyphicon-plus"></i> New Opportunity
+          <i class="glyphicon glyphicon-plus"></i> New Inspection
         </a>
       </div>
     </div>
@@ -42,32 +42,32 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <a ui-sref="customerIndex()" class="btn btn-success">
-            <i class="fa fa-users"></i> Customers
+            <i class="fa fa-users"></i> Tenants
           </a>
         </h3>
       </div>
       <div class="panel-body">
         <div ng-if="customers.length == 0" class="alert alert-info" role="alert">
-          You currently no customers associated with this application. Click <strong>New Customer</strong> to add one.
+          You currently no tenants associated with this application. Click <strong>New Tenant</strong> to add one.
         </div>
         <table ng-if="customers.length > 0" class="table table-striped">
           <thead>
             <tr>
               <th>Name</th>
-              <th>Submitted</th>
+              <th>Unit</th>
               <th>Operations</th>
             </tr>
           </thead>
           <tbody>
             <tr data-ng-repeat="customer in customers">
               <td><a ui-sref="customer.view({customerId: customer._id})">{{ customer.data.name }}</a></td>
-              <td>{{ customer.created | amDateFormat:'MMMM Do YYYY' }}</td>
+              <td>{{ customer.data.unit }}</td>
               <td>
                 <div class="button-group">
-                  <a ui-sref="customer.edit({customerId: customer._id})" class="btn btn-default btn-sm">
+                  <a ui-sref="customer.edit({customerId: customer._id})" class="btn btn-default btn-xs">
                     <span class="glyphicon glyphicon-edit"></span>
                   </a>
-                  <a ui-sref="customer.delete({customerId: customer._id})" class="btn btn-danger btn-sm">
+                  <a ui-sref="customer.delete({customerId: customer._id})" class="btn btn-danger btn-xs">
                     <span class="glyphicon glyphicon-remove-circle"></span>
                   </a>
                 </div>
@@ -79,7 +79,7 @@
       </div>
       <div class="panel-footer">
         <a ui-sref="customerCreate()" class="btn btn-primary">
-          <i class="fa fa-user-plus"></i> New Customer
+          <i class="fa fa-user-plus"></i> New Tenant
         </a>
       </div>
     </div>
@@ -129,13 +129,13 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <a ui-sref="quoteIndex()" class="btn btn-success">
-            <i class="fa fa-building"></i> Quotes
+            <i class="fa fa-building"></i> Maintenance Requests
           </a>
         </h3>
       </div>
       <div class="panel-body">
         <div ng-if="quotes.length == 0" class="alert alert-info" role="alert">
-          You currently do not have any quotes. Click <strong>New Quote</strong> to add one.
+          You currently do not have any maintenance requests. Click <strong>New Maintenance Request</strong> to add one.
         </div>
         <table ng-if="quotes.length > 0" class="table table-striped">
           <thead>
@@ -155,7 +155,7 @@
       </div>
       <div class="panel-footer">
         <a ui-sref="quoteCreate()" class="btn btn-primary">
-          <i class="glyphicon glyphicon-plus"></i> New Quote
+          <i class="glyphicon glyphicon-plus"></i> New Maintenance Request
         </a>
       </div>
     </div>
@@ -165,7 +165,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <a ui-sref="agentIndex()" class="btn btn-success">
-            <i class="fa fa-building"></i> Agents
+            <i class="fa fa-building"></i> Employees
           </a>
         </h3>
       </div>
@@ -176,7 +176,7 @@
         <table ng-if="agents.length > 0" class="table table-striped">
           <thead>
             <tr>
-              <th>For</th>
+              <th>Name</th>
               <th>Submitted</th>
             </tr>
           </thead>

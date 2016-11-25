@@ -13,7 +13,7 @@ API_URL = query.apiUrl || API_URL;
 angular.module('formioSalesQuoteApp').constant('AppConfig', {
   appUrl: APP_URL,
   apiUrl: API_URL,
-  company: 'Acme Inc.',
+  company: 'Zellig',
   forms: {
     contractForm: APP_URL + '/contract',
     customerForm: APP_URL + '/customer',
