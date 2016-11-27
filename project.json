@@ -1,5 +1,5 @@
 {
-    "title": "Sales Quote",
+    "title": "Maintenance Request",
     "version": "2.0.1",
     "description": "A sales quoting project that lets agents login and manage their opportunities, customers, and contracts.",
     "preview": {
@@ -14,8 +14,8 @@
             "default": false
         },
         "agent": {
-            "title": "Agent",
-            "description": "A sales agent",
+            "title": "Employee",
+            "description": "An employee",
             "admin": false,
             "default": false
         },
@@ -226,7 +226,7 @@
     },
     "resources": {
         "customer": {
-            "title": "Customer",
+            "title": "Tenant",
             "type": "resource",
             "name": "customer",
             "path": "customer",
@@ -413,7 +413,7 @@
             }]
         },
         "agent": {
-            "title": "Agent",
+            "title": "Employee",
             "type": "resource",
             "name": "agent",
             "path": "agent",
@@ -564,19 +564,19 @@
             }]
         },
         "opportunity": {
-            "title": "Opportunity",
+            "title": "Inspection",
             "type": "resource",
             "name": "opportunity",
             "path": "opportunity",
             "tags": [],
             "components": [{
-                "title": "Opportunity Information",
+                "title": "Inspection Information",
                 "type": "panel",
                 "components": [{
                     "columns": [{
                         "components": [{
                             "input": true,
-                            "label": "Customer",
+                            "label": "Tenant",
                             "template": "<span>{{ item.data.name }}</span>",
                             "searchFields": "",
                             "tableView": true,
@@ -613,9 +613,9 @@
                             "dataSrc": "json",
                             "refresh": false,
                             "defaultValue": "",
-                            "placeholder": "Select the status of this opportunity",
+                            "placeholder": "Select the status of this inspection",
                             "data": {
-                                "json": "[\"N/A\",\"No Quote\",\"Completed\",\"Assigned\"]",
+                                "json": "[\"N/A\",\"No Maintenance Request\",\"Completed\",\"Assigned\"]",
                                 "url": "",
                                 "values": [{
                                     "label": "Value 1",
@@ -637,7 +637,7 @@
             }, {
                 "input": false,
                 "theme": "success",
-                "title": "Quote Information",
+                "title": "Maintenance Request Information",
                 "type": "panel",
                 "components": [{
                     "columns": [{
@@ -663,7 +663,7 @@
                                 "json": "[\"Budget\",\"Buy\"]"
                             },
                             "tableView": true,
-                            "label": "Quote Type",
+                            "label": "Maintenance Request Type",
                             "input": true,
                             "placeholder": "Select the quote type",
                             "multiple": false,
@@ -682,7 +682,7 @@
                             "protected": false,
                             "refresh": false,
                             "unique": false,
-                            "label": "Quote Status",
+                            "label": "Maintenance Request Status",
                             "input": true,
                             "tableView": false,
                             "template": "<span>{{ item }}</span>",
@@ -692,7 +692,7 @@
                             "key": "quoteStatus",
                             "refreshDelay": 0,
                             "data": {
-                                "json": "[\"No Quote\",\"Completed\",\"On Track\",\"Not Started\"]",
+                                "json": "[\"No Maintenance Request\",\"Completed\",\"On Track\",\"Not Started\"]",
                                 "url": "",
                                 "values": [{
                                     "label": "Value 1",
@@ -719,7 +719,7 @@
                                 "step": "any"
                             },
                             "key": "quoteHours",
-                            "label": "Quote Hours",
+                            "label": "Maintenance Request Hours",
                             "placeholder": "Select the quote hours",
                             "prefix": "",
                             "type": "number"
@@ -728,7 +728,7 @@
                         "components": [{
                             "input": true,
                             "enableTime": false,
-                            "label": "Quote Deadline",
+                            "label": "Maintenance Request Deadline",
                             "tableView": false,
                             "enableDate": true,
                             "protected": false,
@@ -765,7 +765,7 @@
                             "placeholder": "Enter the quote buyouts",
                             "suffix": "",
                             "defaultValue": "",
-                            "label": "Quote Buyouts",
+                            "label": "Maintenance Request Buyouts",
                             "prefix": "",
                             "type": "number",
                             "inputType": "number",
@@ -796,7 +796,7 @@
                             },
                             "key": "quoteValue",
                             "suffix": "USD",
-                            "label": "Quote Value",
+                            "label": "Maintenance Request Value",
                             "placeholder": "Enter the quote value",
                             "defaultValue": "",
                             "input": true
@@ -816,7 +816,7 @@
                     "defaultValue": "",
                     "rows": 3,
                     "suffix": "",
-                    "label": "Quote Specification",
+                    "label": "Maintenance Request Specification",
                     "multiple": false,
                     "input": true,
                     "key": "quoteSpecification",
@@ -879,7 +879,7 @@
                     "format": "yyyy-MM-dd",
                     "key": "dateAssigned",
                     "enableTime": false,
-                    "placeholder": "Enter the date this opportunity was assigned.",
+                    "placeholder": "Enter the date this inspection was assigned.",
                     "enableDate": true,
                     "protected": false,
                     "datepickerMode": "day",
@@ -1092,7 +1092,7 @@
                 },
                 "multiple": false,
                 "selectFields": "",
-                "label": "Customer",
+                "label": "Tenant",
                 "tableView": true,
                 "type": "resource",
                 "input": true,
@@ -1110,7 +1110,7 @@
                 "input": false,
                 "type": "content"
             }, {
-                "footer": "Customer Signature",
+                "footer": "Tenant    Signature",
                 "width": "100%",
                 "input": true,
                 "type": "signature",
@@ -1180,7 +1180,7 @@
             }]
         },
         "quote": {
-            "title": "Quote",
+            "title": "Maintenance Request",
             "type": "resource",
             "name": "quote",
             "path": "quote",
@@ -1206,7 +1206,7 @@
                             "validate": {
                                 "required": false
                             },
-                            "label": "Customer",
+                            "label": "Tenant",
                             "project": "project"
                         }, {
                             "validate": {
@@ -1568,7 +1568,7 @@
                 }],
                 "input": false,
                 "theme": "success",
-                "title": "Quote"
+                "title": "Maintenance Request"
             }, {
                 "type": "panel",
                 "components": [{
