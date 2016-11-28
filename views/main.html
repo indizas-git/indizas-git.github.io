@@ -4,7 +4,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <a ui-sref="opportunityIndex()" class="btn btn-success">
-            <i class="fa fa-building"></i> Inspections
+            <i class="fa fa-building-o"></i> Inspections
           </a>
         </h3>
       </div>
@@ -89,13 +89,13 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <a ui-sref="contractIndex()" class="btn btn-success">
-            <i class="fa fa-dollar"></i> Contracts
+            <i class="fa fa-file-text-o"></i> Lease Contracts
           </a>
         </h3>
       </div>
       <div class="panel-body">
         <div ng-if="contracts.length == 0" class="alert alert-info" role="alert">
-          You currently do not have any contracts associated with your account. Click <strong>New Contract</strong> to add one.
+          You currently do not have any leases associated with your account. Click <strong>New Lease</strong> to add one.
         </div>
         <table ng-if="contracts.length > 0" class="table table-striped">
           <thead>
@@ -117,7 +117,7 @@
       </div>
       <div class="panel-footer">
         <a ui-sref="contractCreate()" class="btn btn-primary">
-          <i class="glyphicon glyphicon-plus"></i> New Contract
+          <i class="glyphicon glyphicon-plus"></i> New Lease
         </a>
       </div>
     </div>
@@ -129,7 +129,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <a ui-sref="quoteIndex()" class="btn btn-success">
-            <i class="fa fa-building"></i> Maintenance Requests
+            <i class="fa fa-wrench"></i> Maintenance Requests
           </a>
         </h3>
       </div>
@@ -165,7 +165,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <a ui-sref="agentIndex()" class="btn btn-success">
-            <i class="fa fa-building"></i> Employees
+            <i class="fa fa-address-book-o"></i> Employees
           </a>
         </h3>
       </div>
