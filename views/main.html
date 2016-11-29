@@ -15,16 +15,14 @@
         <table ng-if="opportunities.length > 0" class="table table-striped">
           <thead>
             <tr>
-              <th>For</th>
               <th>Type</th>
-              <th>Submitted</th>
+              <th>Due Date</th>
             </tr>
           </thead>
           <tbody>
             <tr data-ng-repeat="opportunity in opportunities">
-              <td><a ui-sref="opportunity.view({opportunityId: opportunity._id})">{{ opportunity.data.customer.data.name }}</a></td>
-              <td><a ui-sref="opportunity.view({opportunityId: opportunity._id})">{{ opportunity.data.quoteType }}</a></td>
-              <td>{{ opportunity.created | amDateFormat:'MMMM Do YYYY' }}</td>
+              <td><a ui-sref="opportunity.view({opportunityId: opportunity._id})">{{ opportunity.data.status }}</a></td>
+              <td>{{ opportunity.data.dueDate1 | amDateFormat:'Do MMM YYYY' }}</td>
             </tr>
           </tbody>
         </table>
@@ -100,16 +98,16 @@
         <table ng-if="contracts.length > 0" class="table table-striped">
           <thead>
             <tr>
-              <th>Company</th>
-              <th>Opportunity</th>
-              <th>Submitted</th>
+              <th>Unit</th>
+              <th>Tenant</th>
+              <th>Termination</th>
             </tr>
           </thead>
           <tbody>
             <tr data-ng-repeat="contract in contracts">
-              <td><a ui-sref="contract.view({contractId: contract._id})">{{ contract.data.customer.data.name }}</a></td>
-              <td><a ui-sref="contract.view({contractId: contract._id})">{{ contract.data.opportunity.data.opportunityNumber }}</a></td>
-              <td>{{ contract.created | amDateFormat:'MMMM Do YYYY' }}</td>
+              <td><a ui-sref="contract.view({contractId: contract._id})">{{ contract.data.unit }}</a></td>
+              <td><a ui-sref="contract.view({contractId: contract._id})">{{ contract.data.tenant }}</a></td>
+              <td>{{ contract.data.terminationDate | amDateFormat:'Do MMM YYYY' }}</td>
             </tr>
           </tbody>
         </table>
@@ -147,7 +145,7 @@
           <tbody>
             <tr data-ng-repeat="quote in quotes">
               <td><a ui-sref="quote.view({quoteId: quote._id})">{{ quote.data.customer.data.name }}</a></td>
-              <td>{{ quote.created | amDateFormat:'MMMM Do YYYY' }}</td>
+              <td>{{ quote.created | amDateFormat:'Do MMM YYYY' }}</td>
             </tr>
           </tbody>
         </table>
@@ -177,13 +175,13 @@
           <thead>
             <tr>
               <th>Name</th>
-              <th>Submitted</th>
+              <th>Email</th>
             </tr>
           </thead>
           <tbody>
             <tr data-ng-repeat="agent in agents">
               <td><a ui-sref="agent.view({agentId: agent._id})">{{ agent.data.firstName }} {{ agent.data.lastName }}</a></td>
-              <td>{{ agent.created | amDateFormat:'MMMM Do YYYY' }}</td>
+              <td>{{ agent.data.email }}</td>
             </tr>
           </tbody>
         </table>
