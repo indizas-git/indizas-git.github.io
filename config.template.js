@@ -15,5 +15,5 @@ location.search.substr(1).split("&").forEach(function(item) {
 angular.module('formioSalesQuoteApp').constant('AppConfig', {
   appUrl: query.appUrl || APP_URL,
   apiUrl: query.apiUrl || API_URL,
-  company: 'Acme Inc.'
+  company: 'Zellig'
 });

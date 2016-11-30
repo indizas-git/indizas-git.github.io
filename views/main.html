@@ -1,5 +1,51 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-6">
+    <div class="panel panel-primary" ng-if="isAdmin">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a ui-sref="quoteIndex()" class="btn btn-primary">
+            <i class="fa fa-wrench"></i> Maintenance Requests
+          </a>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div ng-if="quotes.length == 0" class="alert alert-info" role="alert">
+          You currently do not have any maintenance requests. Click <strong>New Maintenance Request</strong> to add one.
+        </div>
+        <table ng-if="quotes.length > 0" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-ng-repeat="quote in quotes">
+              <td><a ui-sref="quote.view({quoteId: quote._id})">{{ quote.data.areaUnit }}</a></td>
+              <td>{{ quote.data.priority }}</td>
+              <td>{{ quote.data.status }}</td>
+              <td>
+                <div class="button-group">
+                  <a ui-sref="quote.edit({quoteId: quote._id})" class="btn btn-default btn-xs">
+                    <span class="glyphicon glyphicon-edit"></span>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <bgf-pagination collection="quotes" url="quotesUrl" per-page="5" template-url="./views/pager.html"></bgf-pagination>
+      </div>
+      <div class="panel-footer">
+        <a ui-sref="quoteCreate()" class="btn btn-primary">
+          <i class="glyphicon glyphicon-plus"></i> New Maintenance Request
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">
@@ -17,12 +63,20 @@
             <tr>
               <th>Type</th>
               <th>Due Date</th>
+              <th>Edit</th>
             </tr>
           </thead>
           <tbody>
             <tr data-ng-repeat="opportunity in opportunities">
               <td><a ui-sref="opportunity.view({opportunityId: opportunity._id})">{{ opportunity.data.status }}</a></td>
               <td>{{ opportunity.data.dueDate1 | amDateFormat:'Do MMM YYYY' }}</td>
+              <td>
+                <div class="button-group">
+                  <a ui-sref="opportunity.edit({opportunityId: opportunity._id})" class="btn btn-default btn-xs">
+                    <span class="glyphicon glyphicon-edit"></span>
+                  </a>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -35,7 +89,45 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a ui-sref="unitareaIndex()" class="btn btn-primary">
+            <i class="fa fa-file-text-o"></i> Area / Unit
+          </a>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div ng-if="unitareas.length == 0" class="alert alert-info" role="alert">
+          You currently do not have any areas associated with your account. Click <strong>New Area/Unit</strong> to add one.
+        </div>
+        <table ng-if="unitareas.length > 0" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-ng-repeat="unitarea in unitareas">
+              <td><a ui-sref="unitarea.view({unitareaId: unitarea._id})">{{ unitarea.data.areaName }}</a></td>
+              <td>{{ unitarea.data.areaType }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <bgf-pagination collection="unitareas" url="unitareasUrl" per-page="5" template-url="./views/pager.html"></bgf-pagination>
+      </div>
+      <div class="panel-footer">
+        <a ui-sref="unitareaCreate()" class="btn btn-primary">
+          <i class="glyphicon glyphicon-plus"></i> New Area / Unit
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">
@@ -51,15 +143,18 @@
         <table ng-if="customers.length > 0" class="table table-striped">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Unit</th>
+              <th>Company</th>
+              <th>Primary Contact</th>
+              <!--
               <th>Operations</th>
+              -->
             </tr>
           </thead>
           <tbody>
             <tr data-ng-repeat="customer in customers">
               <td><a ui-sref="customer.view({customerId: customer._id})">{{ customer.data.name }}</a></td>
-              <td>{{ customer.data.unit }}</td>
+              <td><a href="mailto:{{ customer.data.email }}">{{ customer.data.firstName }} {{ customer.data.lastName }}</a></td>
+              <!--
               <td>
                 <div class="button-group">
                   <a ui-sref="customer.edit({customerId: customer._id})" class="btn btn-default btn-xs">
@@ -70,6 +165,7 @@
                   </a>
                 </div>
               </td>
+              -->
             </tr>
           </tbody>
         </table>
@@ -82,7 +178,9 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+</div>
+<div class="row">
+  <div class="col-md-6">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">
@@ -120,47 +218,7 @@
       </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-4">
-    <div class="panel panel-primary" ng-if="isAdmin">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <a ui-sref="quoteIndex()" class="btn btn-primary">
-            <i class="fa fa-wrench"></i> Maintenance Requests
-          </a>
-        </h3>
-      </div>
-      <div class="panel-body">
-        <div ng-if="quotes.length == 0" class="alert alert-info" role="alert">
-          You currently do not have any maintenance requests. Click <strong>New Maintenance Request</strong> to add one.
-        </div>
-        <table ng-if="quotes.length > 0" class="table table-striped">
-          <thead>
-            <tr>
-              <th>Area</th>
-              <th>Priority</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr data-ng-repeat="quote in quotes">
-              <td><a ui-sref="quote.view({quoteId: quote._id})">{{ quote.data.areaUnit }}</a></td>
-              <td>{{ quote.data.priority }}</td>
-              <td>{{ quote.data.status }}</td>
-            </tr>
-          </tbody>
-        </table>
-        <bgf-pagination collection="quotes" url="quotesUrl" per-page="5" template-url="./views/pager.html"></bgf-pagination>
-      </div>
-      <div class="panel-footer">
-        <a ui-sref="quoteCreate()" class="btn btn-primary">
-          <i class="glyphicon glyphicon-plus"></i> New Maintenance Request
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
+  <div class="col-md-6">
     <div class="panel panel-primary" ng-if="isAdmin">
       <div class="panel-heading">
         <h3 class="panel-title">

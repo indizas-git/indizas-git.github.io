@@ -20,6 +20,7 @@ angular.module('formioSalesQuoteApp').constant('AppConfig', {
     opportunityForm: APP_URL + '/opportunity',
     agentForm: APP_URL + '/agent',
     quoteForm: APP_URL + '/quote',
+    unitareaForm: APP_URL + '/unitarea',
     userLoginForm: APP_URL + '/user/login'
   }
 });
