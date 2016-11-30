@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6">
-    <div class="panel panel-primary" ng-if="isAdmin">
+    <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">
           <a ui-sref="quoteIndex()" class="btn btn-primary">
@@ -50,7 +50,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <a ui-sref="opportunityIndex()" class="btn btn-primary">
-            <i class="fa fa-building-o"></i> Inspections
+            <i class="fa fa-calendar-check-o"></i> Inspections
           </a>
         </h3>
       </div>
@@ -92,11 +92,11 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" ng-if="isAdmin">
       <div class="panel-heading">
         <h3 class="panel-title">
           <a ui-sref="unitareaIndex()" class="btn btn-primary">
-            <i class="fa fa-file-text-o"></i> Area / Unit
+            <i class="fa fa-building-o"></i> Area / Unit
           </a>
         </h3>
       </div>
@@ -128,7 +128,7 @@
     </div>
   </div>
   <div class="col-md-6">
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" ng-if="isAdmin">
       <div class="panel-heading">
         <h3 class="panel-title">
           <a ui-sref="customerIndex()" class="btn btn-primary">
@@ -181,7 +181,7 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" ng-if="isAdmin">
       <div class="panel-heading">
         <h3 class="panel-title">
           <a ui-sref="contractIndex()" class="btn btn-primary">
