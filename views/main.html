@@ -4,13 +4,13 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <a ui-sref="quoteIndex()" class="btn btn-primary">
-            <i class="fa fa-wrench"></i> Maintenance Requests
+            <i class="fa fa-wrench"></i> Maintenance Tasks
           </a>
         </h3>
       </div>
       <div class="panel-body">
         <div ng-if="quotes.length == 0" class="alert alert-info" role="alert">
-          You currently do not have any maintenance requests. Click <strong>New Maintenance Request</strong> to add one.
+          You currently do not have any maintenance tasks. Click <strong>New Maintenance Task</strong> to add one.
         </div>
         <table ng-if="quotes.length > 0" class="table table-striped">
           <thead>
@@ -40,7 +40,7 @@
       </div>
       <div class="panel-footer">
         <a ui-sref="quoteCreate()" class="btn btn-primary">
-          <i class="glyphicon glyphicon-plus"></i> New Maintenance Request
+          <i class="glyphicon glyphicon-plus"></i> New Maintenance Task
         </a>
       </div>
     </div>
